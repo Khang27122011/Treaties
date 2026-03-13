@@ -1,3 +1,4 @@
+/* Body: background colour, font, and removes default spacing */
 body {
   background-color: #fff8dc;
   font-family: Arial, sans-serif;
@@ -5,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* Header: dark purple background, white text, centered, padded */
 #main-header {
   background-color: #4b0082;
   color: white;
@@ -12,14 +14,22 @@ body {
   padding: 20px;
 }
 
+/* Page title centered */
+h1 {
+  text-align: center;
+}
+
+/* Highlight important words like nations or treaty terms */
 .highlight {
   color: gold;
 }
 
+/* Navigation bar background */
 #main-nav {
   background-color: #dcdcdc;
 }
 
+/* Navigation list: remove bullets, center items */
 #main-nav ul {
   list-style: none;
   padding: 0;
@@ -27,39 +37,41 @@ body {
   text-align: center;
 }
 
+/* Navigation items: horizontal layout with spacing */
 #main-nav ul li {
   display: inline-block;
   margin: 10px;
 }
 
+/* Navigation links: bold, underlined, purple colour */
 #main-nav ul li a {
   text-decoration: underline;
   font-weight: bold;
   color: #4b0082;
 }
 
+/* Main content spacing */
 #content {
   margin: 20px;
 }
 
-.section-impact {
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
+/* Section headings: dark red for emphasis */
 h2 {
   color: #8b0000;
 }
 
+/* Paragraph text: default black */
 p {
   color: #000;
 }
 
+/* Emphasis class: bold and underlined for key words */
 .emphasis {
   font-weight: bold;
   text-decoration: underline;
 }
 
+/* Footer: centered, bold, light grey background */
 #main-footer {
   text-align: center;
   font-weight: bold;
@@ -68,11 +80,13 @@ p {
   background-color: #dcdcdc;
 }
 
+/* Figures: center images, add vertical spacing */
 figure {
   text-align: center;
   margin: 15px 0;
 }
 
+/* Images: responsive, max width, border for style */
 .content-image {
   width: 80%;
   max-width: 600px;
@@ -80,12 +94,9 @@ figure {
   border-radius: 5px;
 }
 
+/* Figcaptions: italic and slightly darker for readability */
 figcaption {
   font-style: italic;
   margin-top: 5px;
   color: #333;
-}
-
-h1 {
-  text-align: center;
 }
