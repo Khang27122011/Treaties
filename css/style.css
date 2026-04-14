@@ -1,59 +1,97 @@
 /*
 COLOUR THEORY & TYPOGRAPHY COMMENT
 
+Colour Scheme Type:
+Analogous colour scheme using purple and red tones,
+with gold used as an accent for contrast and emphasis.
+
 Primary Colour: Indigo / Purple (#4b0082)
-- Used for header and navigation
+- Used for header, navigation, and important headings
 - Represents knowledge, history, and trust
 
-Accent Colour: Gold
-- Used for highlighting important words
-
 Secondary Accent Colour: Dark Red (#8b0000)
-- Used for headings to create visual hierarchy
+- Used for subheadings to create hierarchy and emphasis
+
+Accent Colour: Dark Gold (#b8860b)
+- Used to highlight important words and draw attention
 
 Neutral Colours: White, Light Grey (#dcdcdc), Black
 - Used for backgrounds and readable text
 
 Colour Psychology:
 - Purple = knowledge, history, importance
+- Red = strength and significance
 - Gold = value and attention
 
 Typography:
 - Arial (sans-serif) chosen for readability on screens
 - Clean, modern, and easy to read
+- Clear hierarchy established using font sizes and spacing
 */
-/* Body: background colour, font, and removes default spacing */
+
+/* ROOT FONT SIZE (makes rem easy to use) */
+html {
+  font-size: 10px;
+}
+
+/* BODY: background, font, spacing, readability */
 body {
   background-color: #fff8dc;
   font-family: Arial, sans-serif;
+  font-size: 1.6rem; /* minimum required */
   margin: 0;
   padding: 0;
+  line-height: 1.8; /* improves readability */
+  color: #000;
 }
 
-/* Header: dark purple background, white text, centered, padded */
+/* HEADER: primary colour, centered text */
 #main-header {
   background-color: #4b0082;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
 }
 
-/* Page title centered */
+/* MAIN TITLE: largest text for hierarchy */
 h1 {
-  text-align: center;
+  font-size: 3.2rem; /* at least 2x body */
+  margin-bottom: 1rem;
 }
 
-/* Highlight important words like nations or treaty terms */
+/* SUBHEADINGS: clear hierarchy and spacing */
+h2 {
+  font-size: 2.4rem;
+  color: #8b0000;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px; /* improves readability */
+}
+
+/* SMALLER HEADINGS */
+h3 {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* PARAGRAPHS: spacing for readability */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* HIGHLIGHTED TEXT (accessible gold) */
 .highlight {
-  color: gold;
+  color: #b8860b;
+  font-weight: bold;
 }
 
-/* Navigation bar background */
+/* NAVIGATION BAR */
 #main-nav {
   background-color: #dcdcdc;
+  padding: 1rem;
 }
 
-/* Navigation list: remove bullets, center items */
+/* NAV LIST: centered layout */
 #main-nav ul {
   list-style: none;
   padding: 0;
@@ -61,83 +99,60 @@ h1 {
   text-align: center;
 }
 
-/* Navigation items: horizontal layout with spacing */
+/* NAV ITEMS: horizontal spacing */
 #main-nav ul li {
   display: inline-block;
-  margin: 10px;
+  margin: 0 1rem;
 }
 
-/* Navigation links: bold, underlined, purple colour */
+/* NAV LINKS: primary colour + emphasis */
 #main-nav ul li a {
   text-decoration: underline;
   font-weight: bold;
   color: #4b0082;
 }
 
-/* Main content spacing */
+/* MAIN CONTENT AREA */
 #content {
-  margin: 20px;
+  margin: 2rem;
 }
 
-/* Section headings: dark red for emphasis */
-h2 {
-  color: #8b0000;
-}
-
-/* Paragraph text: default black */
-p {
-  color: #000;
-}
-
-/* Emphasis class: bold and underlined for key words */
+/* EMPHASIS CLASS */
 .emphasis {
   font-weight: bold;
   text-decoration: underline;
 }
 
-/* Footer: centered, bold, light grey background */
+/* FOOTER: neutral background, clear separation */
 #main-footer {
   text-align: center;
   font-weight: bold;
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 2rem;
+  padding: 1rem;
   background-color: #dcdcdc;
 }
 
-/* Figures: center images, add vertical spacing */
+/* FIGURES: spacing + centering */
 figure {
   text-align: center;
-  margin: 15px 0;
+  margin: 2rem 0;
 }
 
-/* Images: responsive, max width, border for style */
-.content-image {
-  width: 80%;
-  max-width: 600px;
-  border: 2px solid #4b0082;
-  border-radius: 5px;
-}
-
-/* Figcaptions: italic and slightly darker for readability */
-figcaption {
-  font-style: italic;
-  margin-top: 5px;
-  color: #333;
-}
-/* Makes all images inside figures smaller and responsive */
-figure img {
+/* IMAGES: responsive and consistent */
+figure img,
+main img {
   width: 60%;
   max-width: 400px;
   height: auto;
   display: block;
-  margin: 0 auto;
-
-  /* centers the image */
+  margin: 2rem auto;
+  border: 2px solid #4b0082; /* ties to primary colour */
+  border-radius: 5px;
 }
-main img {
-  width: 50%; /* makes image smaller */
-  max-width: 400px; /* prevents it from getting too large */
-  height: auto;
-  display: block;
-  margin: 20px auto; /* centers it */
+
+/* FIGCAPTIONS: subtle styling */
+figcaption {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #333;
 }
