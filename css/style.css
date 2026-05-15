@@ -6,46 +6,81 @@ Analogous colour scheme using purple and red tones,
 with gold used as an accent for contrast and emphasis.
 
 Primary Colour: Indigo / Purple (#4b0082)
-- Used for header, navigation, and important headings
-- Represents knowledge, history, and trust
-
 Secondary Accent Colour: Dark Red (#8b0000)
-- Used for subheadings to create hierarchy and emphasis
-
 Accent Colour: Dark Gold (#b8860b)
 - Used to highlight important words and draw attention
 
 Neutral Colours: White, Light Grey (#dcdcdc), Black
-- Used for backgrounds and readable text
-
-Colour Psychology:
-- Purple = knowledge, history, importance
-- Red = strength and significance
-- Gold = value and attention
 
 Typography:
-- Arial (sans-serif) chosen for readability on screens
-- Clean, modern, and easy to read
-- Clear hierarchy established using font sizes and spacing
+- Arial (sans-serif)
+- Clear hierarchy using size, spacing, and weight
 */
 
-/* ROOT FONT SIZE (makes rem easy to use) */
+/* ROOT HTML SETTINGS
+    This sets the base font size for the entire page.
+    10px is used so that rem units are easier to calculate (1.6rem = 16px).
+    This makes scaling text consistent and easier to manage.
+*/
 html {
   font-size: 10px;
 }
 
-/* BODY: background, font, spacing, readability */
+/* BODY STYLING
+    Controls the overall look of the webpage.
+    - Background color gives a warm soft tone
+    - Font family sets clean readable text (Arial fallback to sans-serif)
+    - Base font size uses rem for scalability
+    - Margin and padding removed to eliminate default browser spacing
+    - Line height improves readability between lines
+    - Text color set to black for high contrast
+    - Animation makes the page fade in smoothly when loaded
+*/
 body {
   background-color: #fff8dc;
   font-family: Arial, sans-serif;
-  font-size: 1.6rem; /* minimum required */
+  font-size: 1.6rem;
   margin: 0;
   padding: 0;
-  line-height: 1.8; /* improves readability */
+  line-height: 1.8;
   color: #000;
+
+  /* Smooth fade-in animation when page loads */
+  -webkit-animation: fadeInPage 1s ease-in;
+  animation: fadeInPage 1s ease-in;
 }
 
-/* HEADER: primary colour, centered text */
+/* KEYFRAME ANIMATION (FADE IN EFFECT)
+    This controls how the animation behaves.
+    Starts fully transparent (opacity 0)
+    Ends fully visible (opacity 1)
+    Creates a smooth loading experience instead of instant appearance
+*/
+@-webkit-keyframes fadeInPage {
+  from {
+    opacity: 0; /* invisible at start */
+  }
+  to {
+    opacity: 1; /* fully visible at end */
+  }
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* MAIN HEADER SECTION
+    This is the top banner of the website.
+    - Purple background creates strong visual identity
+    - White text ensures contrast and readability
+    - Centered text improves balance and symmetry
+    - Padding adds space inside the header
+*/
 #main-header {
   background-color: #4b0082;
   color: white;
@@ -53,45 +88,69 @@ body {
   padding: 2rem;
 }
 
-/* MAIN TITLE: largest text for hierarchy */
+/* MAIN TITLE (H1)
+    Largest heading used for page title.
+    Margin bottom adds spacing below the title.
+*/
 h1 {
-  font-size: 3.2rem; /* at least 2x body */
+  font-size: 3.2rem;
   margin-bottom: 1rem;
 }
 
-/* SUBHEADINGS: clear hierarchy and spacing */
+/* SECTION HEADINGS (H2)
+    Used for main sections of content.
+    Dark red adds emphasis and contrast from body text.
+    Letter spacing improves readability.
+*/
 h2 {
   font-size: 2.4rem;
   color: #8b0000;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  letter-spacing: 1px; /* improves readability */
+  letter-spacing: 1px;
 }
 
-/* SMALLER HEADINGS */
+/* SUBHEADINGS (H3)
+    Used for smaller sub-sections under H2 headings.
+    Slightly smaller size maintains visual hierarchy.
+*/
 h3 {
   font-size: 2rem;
   margin-top: 1.5rem;
 }
 
-/* PARAGRAPHS: spacing for readability */
+/* PARAGRAPH TEXT
+    Controls body text formatting.
+    - Bottom margin creates spacing between paragraphs
+    - Word spacing improves readability
+    - Letter spacing slightly increases clarity
+*/
 p {
   margin-bottom: 1.5rem;
+  word-spacing: 1px;
+  letter-spacing: 0.3px;
 }
 
-/* HIGHLIGHTED TEXT (accessible gold) */
-.highlight {
-  color: #b8860b;
-  font-weight: bold;
-}
-
-/* NAVIGATION BAR */
+/* NAVIGATION BAR
+    Sticky navigation stays visible while scrolling.
+    Improves usability because users always have access to links.
+    - Light grey background keeps it neutral
+    - Z-index ensures it stays above other elements
+*/
 #main-nav {
   background-color: #dcdcdc;
   padding: 1rem;
+
+  position: -webkit-sticky; /* Safari support */
+  position: sticky; /* modern sticky behavior */
+  top: 0; /* sticks to top of page */
+  z-index: 1000; /* keeps nav above other content */
 }
 
-/* NAV LIST: centered layout */
+/* NAVIGATION LIST RESET
+    Removes default bullet points and spacing from list.
+    Centers navigation items horizontally.
+*/
 #main-nav ul {
   list-style: none;
   padding: 0;
@@ -99,31 +158,60 @@ p {
   text-align: center;
 }
 
-/* NAV ITEMS: horizontal spacing */
+/* NAVIGATION ITEMS
+    Displays items in a horizontal row.
+    Margin adds spacing between each link.
+*/
 #main-nav ul li {
   display: inline-block;
   margin: 0 1rem;
 }
 
-/* NAV LINKS: primary colour + emphasis */
+/* NAVIGATION LINKS
+    Styles clickable links.
+    - Underline shows it's a link
+    - Bold makes it more visible
+    - Purple matches theme
+    - Transition makes hover smooth instead of instant
+*/
 #main-nav ul li a {
   text-decoration: underline;
   font-weight: bold;
   color: #4b0082;
+  transition: all 0.3s ease;
 }
 
-/* MAIN CONTENT AREA */
+/* NAVIGATION HOVER EFFECT
+    When user hovers over links:
+    - Color changes to dark red
+    - Slight zoom makes it feel interactive
+*/
+#main-nav ul li a:hover {
+  color: #8b0000;
+  transform: scale(1.05);
+}
+
+/* MAIN CONTENT WRAPPER
+    Controls width of page content.
+    Centers content and prevents it from stretching too wide.
+*/
 #content {
-  margin: 2rem;
+  width: 92%;
+  margin: 0 auto;
 }
 
-/* EMPHASIS CLASS */
-.emphasis {
-  font-weight: bold;
-  text-decoration: underline;
+/* SECTION SPACING
+    Adds vertical spacing between sections for readability.
+*/
+section {
+  padding: 2rem 0;
 }
 
-/* FOOTER: neutral background, clear separation */
+/* FOOTER SECTION
+    Bottom area of the page.
+    Styled similar to navigation for consistency.
+    Bold text makes it stand out slightly.
+*/
 #main-footer {
   text-align: center;
   font-weight: bold;
@@ -132,27 +220,82 @@ p {
   background-color: #dcdcdc;
 }
 
-/* FIGURES: spacing + centering */
+/* FIGURE CONTAINER
+    Centers images and captions together as a group.
+*/
 figure {
   text-align: center;
   margin: 2rem 0;
 }
 
-/* IMAGES: responsive and consistent */
+/* IMAGES
+    Makes images responsive and centered.
+    - Width limits image size
+    - Max-width prevents stretching too large
+    - Border matches theme color
+    - Border radius softens edges
+*/
 figure img,
 main img {
   width: 60%;
   max-width: 400px;
   height: auto;
+
   display: block;
   margin: 2rem auto;
-  border: 2px solid #4b0082; /* ties to primary colour */
+  border: 2px solid #4b0082;
   border-radius: 5px;
 }
 
-/* FIGCAPTIONS: subtle styling */
+/* IMAGE CAPTION
+    Styled differently to show it is not main content.
+    Italic text separates it visually from paragraphs.
+*/
 figcaption {
   font-style: italic;
   margin-top: 0.5rem;
   color: #333;
+}
+
+/* CARD COMPONENT
+    Used to group related content visually.
+    - White background makes content stand out
+    - Border matches theme
+    - Padding creates internal spacing
+    - Hover effect adds slight zoom interaction
+*/
+.card {
+  background-color: #ffffff;
+  border: 2px solid #4b0082;
+  padding: 2rem;
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+}
+
+/* CARD HOVER EFFECT
+    Slightly enlarges card when hovered for interactivity.
+*/
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* FACTS BOX
+    Used to highlight important information.
+    Red border draws attention to key content.
+*/
+.facts-box {
+  background-color: #ffffff;
+  border: 2px solid #8b0000;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+/* COMPARISON BOX
+    Used to separate comparison content visually.
+    Light grey background reduces intensity so content stands out clearly.
+*/
+.comparison-box {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  margin: 2rem 0;
 }
